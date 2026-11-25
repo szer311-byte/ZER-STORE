@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>ZER 😈 — Official Store</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Amiri:wght@400;700&display=swap');
+:root{--red:#e50920;--bg:#090909;--panel:#141414;--muted:#aaa;--white:#f5f2ee}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:Amiri,serif}
+header{position:sticky;top:0;z-index:5;background:#080808ed;border-bottom:1px solid #2b2b2b;backdrop-filter:blur(12px)}
+.nav{max-width:1200px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.logo{font:900 30px Cinzel,serif;letter-spacing:3px;color:#fff}.logo span{color:var(--red)}
+nav{display:flex;gap:18px;align-items:center}nav a{color:#ddd;text-decoration:none;font-size:17px}nav a:hover{color:var(--red)}
+.actions{display:flex;gap:8px}.btn{border:1px solid #444;background:#171717;color:#fff;padding:9px 13px;border-radius:4px;cursor:pointer;font:16px Amiri}.btn.red{background:var(--red);border-color:var(--red);font-weight:bold}
+.hero{min-height:390px;display:grid;place-items:center;text-align:center;padding:55px 20px;background:radial-gradient(ellipse at 50% 35%,#4c0710 0,#170609 34%,#090909 72%)}
+.kicker{color:#ff4356;letter-spacing:5px;font:700 13px Cinzel}.hero h1{font:900 clamp(48px,10vw,96px) Cinzel;margin:15px 0 5px;text-shadow:0 0 35px #b00020}.hero p{font-size:22px;color:#ddd;margin:8px auto 22px}
+.wrap{max-width:1200px;margin:auto;padding:28px 22px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}.section-head h2{font:700 28px Cinzel;margin:0}.section-head small{color:var(--muted)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.toolbar input,.toolbar select{background:#151515;border:1px solid #393939;color:white;padding:11px 13px;border-radius:4px;font:16px Amiri}
+.toolbar input{flex:1;min-width:180px}.categories{display:flex;gap:8px;flex-wrap:wrap}.cat{background:#161616;border:1px solid #393939;color:#ddd;padding:7px 14px;cursor:pointer}.cat.active,.cat:hover{border-color:var(--red);color:#fff;background:#380811}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.product{background:var(--panel);border:1px solid #292929;position:relative;overflow:hidden}.pic{height:210px;display:grid;place-items:center;background:linear-gradient(140deg,#292929,#0d0d0d 65%,#390710);font:900 34px Cinzel;color:#777;position:relative}.pic:after{content:"ZER";position:absolute;font:900 52px Cinzel;color:#ffffff0b;transform:rotate(-18deg)}.tag{position:absolute;top:10px;right:10px;background:var(--red);padding:3px 9px;font-size:13px}.pinfo{padding:14px}.pinfo h3{margin:0 0 6px;font-size:20px}.price{color:#ff4356;font:700 18px Cinzel}.old{color:#777;text-decoration:line-through;font:14px Cinzel;margin-right:8px}.pactions{display:flex;gap:7px;margin-top:12px}.pactions button{flex:1}
+.panel{background:#111;border:1px solid #292929;padding:22px;margin-top:35px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.feature{background:#171717;padding:18px;border-right:3px solid var(--red)}.feature b{font:700 18px Cinzel;display:block;margin-bottom:5px}.feature p{margin:0;color:#aaa}
+footer{border-top:1px solid #292929;margin-top:45px;padding:30px 22px;color:#999;text-align:center}.footlinks{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:12px}.footlinks a{color:#ccc;text-decoration:none}
+.overlay{position:fixed;inset:0;background:#000b;z-index:10;display:none;place-items:center;padding:16px}.modal{background:#141414;border:1px solid #444;padding:24px;width:min(480px,100%);max-height:85vh;overflow:auto}.modal h2{font:700 24px Cinzel}.close{float:left}.modal input,.modal textarea{width:100%;margin:7px 0;padding:11px;background:#090909;border:1px solid #444;color:#fff;font:16px Amiri}
+.toast{position:fixed;bottom:18px;left:18px;background:#222;border:1px solid var(--red);padding:12px 18px;display:none;z-index:20}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}nav{display:none}.features{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:9px}.pic{height:145px}.pinfo{padding:10px}.pinfo h3{font-size:17px}.hero{min-height:330px}.features{grid-template-columns:1fr}.logo{font-size:25px}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<div class="logo">ZER<span>😈</span></div>
+<nav><a href="#home">الرئيسية</a><a href="#shop">المتجر</a><a href="#drops">ZER Drops</a><a href="#about">من نحن</a></nav>
+<div class="actions"><button class="btn" onclick="openModal('login')">دخول</button><button class="btn red" onclick="openCart()">السلة <span id="cartCount">0</span></button></div>
+</div></header>
+<main id="home">
+<section class="hero"><div><div class="kicker">THE NEW MOROCCAN STREET CULTURE</div><h1>ZER<span style="color:#e50920">😈</span></h1><p>هوية ما كتتشبه لحتى واحد. اختار ستايلك.</p><button class="btn red" onclick="document.querySelector('#shop').scrollIntoView({behavior:'smooth'})">اكتشف المجموعة</button></div></section>
+<section class="wrap" id="shop">
+<div class="section-head"><div><h2>THE COLLECTION</h2><small>اكتشف آخر القطع من ZER</small></div><small>توصيل لجميع مدن المغرب</small></div>
+<div class="toolbar"><input id="search" placeholder="قلب على منتج..." oninput="render()"><select id="sort" onchange="render()"><option value="new">الأحدث</option><option value="low">الثمن: الأقل</option><option value="high">الثمن: الأعلى</option></select></div>
+<div class="categories"><button class="cat active" onclick="setCat('الكل',this)">الكل</button><button class="cat" onclick="setCat('ملابس',this)">ملابس</button><button class="cat" onclick="setCat('إكسسوارات',this)">إكسسوارات</button><button class="cat" onclick="setCat('أحذية',this)">أحذية</button></div>
+<div class="grid" id="products"></div>
+</section>
+<section class="wrap" id="drops"><div class="panel"><div class="section-head"><h2>ZER DROPS</h2><small>إصدارات محدودة — قريباً</small></div><p style="font-size:19px;color:#bbb">قطع مختارة بكميات محدودة. تابع الجديد باش ما يفوتك حتى Drop.</p><button class="btn red" onclick="toast('ميزة التنبيهات ستُفعّل بعد ربط النظام')">فعّل التنبيهات</button></div></section>
+<section class="wrap" id="about"><div class="section-head"><h2>THE ZER EXPERIENCE</h2><small>أكثر من مجرد منتج</small></div><div class="features">
+<div class="feature"><b>COD PAYMENT</b><p>الدفع عند الاستلام — حسب تأكيد الطلب.</p></div>
+<div class="feature"><b>MADE FOR YOU</b><p>اختيارات متنوعة وتفاصيل قابلة للتحديث.</p></div>
+<div class="feature"><b>CURVA AI</b><p>مساعد ZER الذكي — واجهة تجريبية إلى حين ربط خدمة الذكاء الاصطناعي والصوت.</p></div>
+</div></section>
+</main>
+<footer><div class="logo">ZER<span>😈</span></div><div class="footlinks"><a href="#">سياسة الخصوصية</a><a href="#">الشروط والأحكام</a><a href="#">الإرجاع والاستبدال</a><a href="#">التواصل</a></div><small>© ZER — Preview build. المنتجات والطلبات هنا تجريبية وليست للبيع الفعلي.</small></footer>
+<div class="overlay" id="modal" onclick="if(event.target===this)closeModal()"><div class="modal"><button class="btn close" onclick="closeModal()">إغلاق ✕</button><div id="modalContent"></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const products=[
+{id:1,name:'ZER Essential Hoodie',cat:'ملابس',price:349,old:399,label:'NEW'},
+{id:2,name:'ZER Oversized Tee',cat:'ملابس',price:199,old:0,label:'DROP'},
+{id:3,name:'ZER Street Cap',cat:'إكسسوارات',price:149,old:0,label:''},
+{id:4,name:'ZER Urban Sneakers',cat:'أحذية',price:499,old:549,label:'SALE'},
+{id:5,name:'ZER Graphic Tee',cat:'ملابس',price:229,old:0,label:''},
+{id:6,name:'ZER Cross Bag',cat:'إكسسوارات',price:179,old:0,label:'NEW'},
+{id:7,name:'ZER Premium Set',cat:'ملابس',price:599,old:0,label:''},
+{id:8,name:'ZER Socks Pack',cat:'إكسسوارات',price:89,old:0,label:''}
+];
+let category='الكل',cart=[],favs=[];
+function setCat(c,b){category=c;document.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));b.classList.add('active');render()}
+function render(){let q=document.getElementById('search').value.toLowerCase(),s=document.getElementById('sort').value;let list=products.filter(p=>(category==='الكل'||p.cat===category)&&p.name.toLowerCase().includes(q));if(s==='low')list.sort((a,b)=>a.price-b.price);if(s==='high')list.sort((a,b)=>b.price-a.price);document.getElementById('products').innerHTML=list.map(p=>`<article class="product"><div class="pic"><span>${p.label?`<i class="tag">${p.label}</i>`:''}</span></div><div class="pinfo"><h3>${p.name}</h3><div class="price">${p.price} DH ${p.old?`<span class="old">${p.old} DH</span>`:''}</div><div class="pactions"><button class="btn red" onclick="add(${p.id})">أضف للسلة</button><button class="btn" onclick="fav(${p.id})">${favs.includes(p.id)?'♥':'♡'}</button></div></div></article>`).join('')||'<p>ما لقينا حتى منتج.</p>'}
+function add(id){cart.push(id);document.getElementById('cartCount').textContent=cart.length;toast('تزاد المنتج للسلة (تجريبي)')}
+function fav(id){favs.includes(id)?favs=favs.filter(x=>x!==id):favs.push(id);render();toast('تم تحديث المفضلة (تجريبي)')}
+function openCart(){openModal('cart')}
+function openModal(type){let c=document.getElementById('modalContent');if(type==='cart'){let total=cart.reduce((s,id)=>s+products.find(p=>p.id===id).price,0);c.innerHTML=`<h2>سلة ZER</h2>${cart.length?cart.map(id=>`<p>${products.find(p=>p.id===id).name} — ${products.find(p=>p.id===id).price} DH</p>`).join(''):'<p>السلة فارغة حالياً.</p>'}<hr><h3>المجموع: ${total} DH</h3><button class="btn red" onclick="checkout()">إتمام الطلب COD</button>`}else{c.innerHTML=`<h2>حساب ZER</h2><p>تسجيل الدخول التجريبي — الربط الحقيقي بالحسابات يحتاج خادماً وقاعدة بيانات.</p><input placeholder="رقم الهاتف أو البريد"><input placeholder="كلمة المرور" type="password"><button class="btn red" onclick="toast('تسجيل الدخول غير مربوط في النسخة التجريبية')">دخول</button>`}document.getElementById('modal').style.display='grid'}
+function checkout(){document.getElementById('modalContent').innerHTML=`<h2>طلب COD</h2><p>أدخل معلوماتك لمعاينة نموذج الطلب.</p><input placeholder="الاسم الكامل"><input placeholder="رقم الهاتف"><input placeholder="المدينة"><textarea placeholder="العنوان بالتفصيل"></textarea><button class="btn red" onclick="toast('هذا نموذج عرض فقط — الطلبات غير مفعلة بعد');closeModal()">تأكيد تجريبي</button>`}
+function closeModal(){document.getElementById('modal').style.display='none'}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2300)}
+render();
+</script>
+</body></html>
